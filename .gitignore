@@ -1,0 +1,7 @@
+site_root/wp-admin
+site_root/wp-includes
+site_root/wp-content/plugins
+site_root/wp-content/upgrade
+site_root/wp-content/index.php
+site_root/wp-config.php
+site_root\wp-content\themes\Pyrex\node_modules
