@@ -3,3 +3,85 @@
 @tailwind utilities;
 
 
+@layer base{
+    :root{
+        font-size: 20px;
+    }
+
+    h1,h2,h3,h4,h5,h6{
+        font-family: 'Russo One', sans-serif;
+    }
+    h1{
+        font-size: 3rem;
+    }
+    h2{
+        font-size: 2.25rem;
+    }
+    h3{
+        font-size: 1.75rem;
+    }
+    h4{
+        font-size: 1.25rem;
+    }
+    h5{
+        font-size: 1rem;
+    }
+    h6{
+        font-size: 1rem;
+    }
+
+
+    body{
+        font-family: 'Varela', sans-serif;
+    }
+    navbar {
+        font-family: 'Russo One', sans-serif;
+    }
+
+    #background-video{
+        @apply absolute w-screen -z-10;
+        -webkit-filter: brightness(0.3) url(#kill);
+    }
+    .content-wrapper{
+    }
+    .navbar.main-nav{
+        background-color: rgba(0,0,0, 0.3);
+    }
+
+    .music-hover{
+        transition: all 0.2s;
+        cursor:pointer;
+        display:block;
+        &:hover{
+            transform:scale(1.2);
+        }
+    }
+
+    .video-hover{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        position:relative;
+        .content{
+            transition: all 0.1s;
+
+        }
+        .playbutton{
+            display:none;
+            position:absolute;
+            transition: all 0.1s;
+            opacity: 0;
+
+        }
+        &:hover{
+            .content{
+                filter:brightness(0.2);
+            }
+            .playbutton{
+                display:block;
+                opacity: 1;
+            }
+        }
+    }
+
+}

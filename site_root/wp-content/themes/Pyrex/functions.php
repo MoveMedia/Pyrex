@@ -8,6 +8,8 @@
  * @since   Timber 0.1
  */
 
+
+
 /**
  * If you are installing Timber as a Composer dependency in your theme, you'll need this block
  * to load your dependencies and initialize Timber. If you are using Timber via the WordPress.org
@@ -41,10 +43,13 @@ if ( ! class_exists( 'Timber' ) ) {
 	return;
 }
 
+require 'function-query.php';
+
+
 /**
  * Sets the directories (inside your theme) to find .twig files
  */
-Timber::$dirname = array( 'templates', 'views' );
+Timber::$dirname = array( 'templates', 'views', 'templates/partial' );
 
 /**
  * By default, Timber does NOT autoescape values. Want to enable Twig's autoescape?
@@ -81,10 +86,8 @@ class StarterSite extends Timber\Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
-		$context['foo']   = 'bar';
-		$context['stuff'] = 'I am a value set in your functions.php file';
-		$context['notes'] = 'These values are available everytime you call Timber::context();';
-		$context['menu']  = new Timber\Menu();
+		$context['main_menu']  = new Timber\Menu('main-menu');
+		$context['site_options'] = get_fields(get_site_options()->ID);
 		$context['site']  = $this;
 		return $context;
 	}
