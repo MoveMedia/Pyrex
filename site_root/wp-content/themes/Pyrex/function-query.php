@@ -15,10 +15,38 @@ function get_all_artists (){
     ]);
 }
 
+function get_music_by_artist($artist_id){
+    return Timber::get_posts([
+        'post_type' => 'song',
+        'numberposts'   => -1,
+        'meta_query' => [
+            [
+                'key'       => 'artists',
+                'value'     => '"'. $artist_id . '"',
+                'compare'   => 'LIKE',
+            ],
+        ]
+    ]);
+}
+
+function get_videos_by_artist($artist_id){
+    return Timber::get_posts([
+        'post_type' => 'video',
+        'numberposts'   => -1,
+        'meta_query' => [
+            [
+                'key'       => 'artists',
+                'value'     => '"'. $artist_id . '"',
+                'compare'   => 'LIKE',
+            ],
+        ]
+    ]);
+}
+
 
 function get_all_music (){
     return Timber::get_posts([
-        'post_type' => 'music'
+        'post_type' => 'song'
     ]);
 }
 
